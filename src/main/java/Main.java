@@ -14,13 +14,15 @@ import static spark.Spark.get;
 import com.heroku.sdk.jdbc.DatabaseUrl;
 
 public class Main {
+	
+	private static final long time = System.currentTimeMillis();
 
   public static void main(String[] args) {
 
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
 
-    get("/hello", (req, res) -> "<h1>Hello World, I can push things now!!!2</h1>");
+    get("/hello", (req, res) -> "<h1>Hello World, I can push things now!!!2</h1><br />It is " + time + "o'clock!");
 
     get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
