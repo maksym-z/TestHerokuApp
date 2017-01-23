@@ -24,7 +24,7 @@ public class Main {
 
     get("/", (req, res) -> "<form action='chat'><input type='text'><input type='submit' value='Submit'></form>");
     
-    get("/chat", (req, res) -> "request: " +  req + "; response: " + res);
+    get("/chat", (req, res) -> "request: " +  req.toString() + "; response: " + res.toString());
 
     get("/db", (req, res) -> {
       Connection connection = null;
