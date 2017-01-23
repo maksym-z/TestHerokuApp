@@ -22,9 +22,9 @@ public class Main {
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
 
-    get("/", (req, res) -> "<form action='chat'><input type='text'><input type='submit' value='Submit'></form>");
+    get("/", (req, res) -> "<form action='chat' method='POST'><input type='text' name='user text'><input type='submit' value='Submit'></form>");
     
-    get("/chat", (req, res) -> "request: " +  req.toString() + "; response: " + res.toString());
+    get("/chat", (req, res) -> "request: " +  req.toString() + ";\n response: " + res.toString());
 
     get("/db", (req, res) -> {
       Connection connection = null;
