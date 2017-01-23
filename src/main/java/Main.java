@@ -22,14 +22,9 @@ public class Main {
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
 
-    get("/hello", (req, res) -> "<h1>Hello World, I can push things now!!!2</h1><br />It is " + time + "o'clock!");
-
-    get("/", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            attributes.put("message", "Hello World!");
-
-            return new ModelAndView(attributes, "index.ftl");
-        }, new FreeMarkerEngine());
+    get("/", (req, res) -> "<form action='chat'><input type='text'><input type='submit' value='Submit'></form>");
+    
+    get("/chat", (req, res) -> "request: " +  req + "; response: " + res);
 
     get("/db", (req, res) -> {
       Connection connection = null;
